@@ -104,5 +104,5 @@
 </p>
 
 <p align="center">
-  <img src="https://github-readme-activity-graph.cyclic.app/graph?username=udaysai12&theme=react-dark&hide_border=true&area=true&custom_title=My%20GitHub%20Activity%20Graph" width="95%" />
+  <img src="https://github-profile-trophy.vercel.app/?username=udaysai12&theme=darkhub&margin-w=20&no-frame=true" />
 </p>
