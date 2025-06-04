@@ -47,11 +47,10 @@
 - Medical Services Communication System (MERN + Tailwind)
 - Quiz Management System (PHP + JS)
 - Library Management System (PHP + JS)
-- College Official Website (HTML + CSS + JS + PHP)
-
+- correct news web (MERN + Tailwind)
+- **Online Outpass System** (Django Backend)
 ### 📱 App:
-- **Travel Registration System** (React Native)
-- **Online Outpass System** (Django Backend + Mobile UI)
+- **correct newsm** (React Native)
 - *More to come...*
 
 ---
