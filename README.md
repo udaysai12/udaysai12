@@ -4,7 +4,7 @@
 🎓 B.Tech CSE @ RGUKT Srikakulam (2020–2026)  
 🌍 Full Stack Web & App Developer  
 📱 Passionate about building modern web apps and mobile apps  
-💼 Managed official college website | Built 10+ projects  
+💼  Built 10+ projects  
 📧 [Mail me](mailto:udaysaisetti@gmail.com) | ☎️ +91-7075974182
 
 ---
