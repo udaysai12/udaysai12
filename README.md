@@ -100,9 +100,5 @@
 ---
 
 <p align="center">
-  <img src="https://github-profile-trophy.vercel.app/?username=udaysai12&theme=algolia&margin-w=20&no-frame=true&row=2&column=3" />
-</p>
-
-<p align="center">
   <img src="https://github-profile-trophy.vercel.app/?username=udaysai12&theme=darkhub&margin-w=20&no-frame=true" />
 </p>
