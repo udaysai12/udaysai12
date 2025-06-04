@@ -1,4 +1,4 @@
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0f0c29,302b63,24243e&height=200&section=header&text=Hi%20👋%20I'm%20Uday%20Sai%20Setti&fontSize=35&fontColor=ffffff" />
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f0c29,50:302b63,100:24243e&height=200&section=header&text=Hi%20👋%20I'm%20Uday%20Sai%20Setti&fontSize=35&fontColor=ffffff" />
 
 <p align="center">
   <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=500&size=24&pause=1000&color=0FFCD3&vCenter=true&width=450&lines=Full+Stack+Web+%26+App+Developer;Tech+Enthusiast+%7C+Open+Source+Lover;Let's+Build+Something+Awesome+!+💻🚀" alt="Typing SVG" />
@@ -11,7 +11,7 @@
 🌐 Full Stack Web & App Developer  
 📱 Passionate about building modern and responsive web & mobile applications  
 ⚡ Built 10+ real-world projects  
-📧 [Email Me](mailto:udaysaisetti@gmail.com) | ☎️ +91-7075974182
+📧 [Email Me](mailto:udaysaisetti@gmail.com) | 
 
 ---
 
