@@ -125,8 +125,10 @@
 
 <h2 align="center">🐍 Contribution Snake</h2>
 
+<h2 align="center">📊 GitHub Stats</h2>
+
 <div align="center">
-  <img src="https://raw.githubusercontent.com/udaysai12/udaysai12/output/github-contribution-grid-snake-dark.svg" width="100%">
+  <img src="https://raw.githubusercontent.com/udaysai12/udaysai12/main/github-metrics.svg" width="100%">
 </div>
 
 ---
