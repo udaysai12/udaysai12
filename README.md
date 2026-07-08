@@ -114,9 +114,7 @@
 <h2 align="center">🐍 Contribution Snake</h2>
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/udaysai12/udaysai12/output/github-contribution-grid-snake-dark.svg" width="100%">
-</div>
-
+<img src="https://github.com/udaysai12/udaysai12/blob/output/github-contribution-grid-snake-dark.svg?raw=true" width="100%" /> </div>
 ---
 
 <h2 id="-mood">😂 Coding Mood</h2>
