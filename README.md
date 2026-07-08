@@ -1,85 +1,28 @@
 <div align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&color=%2300FF41&size=40&center=true&vCenter=true&height=70&width=650&lines=Heyyy!+I'm+Uday+Sai+Setti+%3C3;Full+Stack+%26+Mobile+App+Dev;Welcome+to+my+profile!" alt="Title">
+  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&color=%2300FF41&size=40&center=true&vCenter=true&height=70&width=650&lines=+Heyyy!+I'm+Uday+Sai+Setti+%3C3;Full+Stack+%26+Mobile+App+Dev;Welcome+to+my+profile!" alt="Title">
 </div>
 
-<h2 id="-about-me"><img src="https://raw.githubusercontent.com/nixin72/nixin72/master/wave.gif" width="50px" height="50px"> About Me</h2>
+---
+<h2 id="-about-me"><img src="https://raw.githubusercontent.com/nixin72/nixin72/master/wave.gif" width="45px" height="45px"> About Me</h2>
 
-<ul>
-<li>🎓 I'm currently in my final year at <strong>RGUKT (IIIT) Srikakulam</strong>, B.Tech CSE <img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="350" align="right"></li>
-<li>💼 I work as a <strong>Full Stack & Mobile App Developer</strong> @ Technoji Global</li>
-<li>🔧 Previously interned as a <strong>MERN Stack Developer</strong> @ Scale Orange</li>
-<li>🌏 I'm based in <strong>Visakhapatnam, Andhra Pradesh, India</strong></li>
-<li>🧠 I'm deeply into <strong>AR / Computer Vision</strong> experimentation</li>
-<li>😄 Fun fact: idea → prototype → ship → repeat, on loop</li>
-</ul>
+<img src="https://user-images.githubusercontent.com/507615/90595977-95e70e80-e220-11ea-864a-6a61adaff212.png" width="450" align="right">
 
-<p align="right">
-  <img src="https://user-images.githubusercontent.com/507615/90595977-95e70e80-e220-11ea-864a-6a61adaff212.png" alt="">
-</p>
-<p align="right">
-  <img src="https://visitor-badge.glitch.me/badge?page_id=udaysai12.udaysai12" alt="">
-</p>
+- 🎓 Final year, **B.Tech CSE** @ RGUKT (IIIT) Srikakulam
+- 💼 **Full Stack & Mobile App Developer** @ Technoji Global
+- 🔧 Ex-Intern (MERN Stack) @ Scale Orange
+- 🌏 Based in **Visakhapatnam, Andhra Pradesh, India**
+- 🧠 Deep into **AR / Computer Vision** experimentation
+- 😄 Fun fact: idea → prototype → ship → repeat, on loop
 
-<hr>
-
-<h2 id="-some-languages-and-tools"><img src="https://media2.giphy.com/media/QssGEmpkyEOhBCb7e1/giphy.gif?cid=ecf05e47a0n3gi1bfqntqmob8g9aid1oyj2wr3ds3mg700bl&rid=giphy.gif" width="50px" height="50px"> Some Languages and Tools</h2>
-
-<p align="center">
-<img src="https://img.shields.io/badge/-TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" height="25">
-&nbsp;
-<img src="https://img.shields.io/badge/-JavaScript-black?style=for-the-badge&logo=javascript" height="25">
-&nbsp;
-<img src="https://img.shields.io/badge/-React-61DAFB?style=for-the-badge&logo=react&logoColor=black" height="25">
-</p>
-<p align="center">
-<img src="https://img.shields.io/badge/-Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white" height="25">
-&nbsp;
-<img src="https://img.shields.io/badge/-Node.js-339933?style=for-the-badge&logo=nodedotjs" height="25">
-&nbsp;
-<img src="https://img.shields.io/badge/-Express.js-black?style=for-the-badge&logo=express" height="25">
-</p>
-<p align="center">
-<img src="https://img.shields.io/badge/-React_Native-61DAFB?style=for-the-badge&logo=react&logoColor=black" height="25">
-&nbsp;
-<img src="https://img.shields.io/badge/-Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white" height="25">
-&nbsp;
-<img src="https://img.shields.io/badge/-Electron-47848F?style=for-the-badge&logo=electron&logoColor=white" height="25">
-</p>
-<p align="center">
-<img src="https://img.shields.io/badge/-Python-3776AB?style=for-the-badge&logo=python&logoColor=white" height="25">
-&nbsp;
-<img src="https://img.shields.io/badge/-Django-092E20?style=for-the-badge&logo=django" height="25">
-&nbsp;
-<img src="https://img.shields.io/badge/-TailwindCSS-38B2AC?style=for-the-badge&logo=tailwind-css" height="25">
-</p>
-<p align="center">
-<img src="https://img.shields.io/badge/-MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white" height="25">
-&nbsp;
-<img src="https://img.shields.io/badge/-PostgreSQL-336791?style=for-the-badge&logo=postgresql&logoColor=white" height="25">
-&nbsp;
-<img src="https://img.shields.io/badge/-MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white" height="25">
-&nbsp;
-<img src="https://img.shields.io/badge/-Redis-DC382D?style=for-the-badge&logo=redis&logoColor=white" height="25">
-</p>
-<p align="center">
-<img src="https://img.shields.io/badge/-Git-F05032?style=for-the-badge&logo=git&logoColor=white" height="25">
-&nbsp;
-<img src="https://img.shields.io/badge/-GitHub-181717?style=for-the-badge&logo=github&logoColor=white" height="25">
-&nbsp;
-<img src="https://img.shields.io/badge/-VSCode-007ACC?style=for-the-badge&logo=visual-studio-code&logoColor=white" height="25">
-&nbsp;
-<img src="https://img.shields.io/badge/-Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white" height="25">
-&nbsp;
-<img src="https://img.shields.io/badge/-Android_Studio-3DDC84?style=for-the-badge&logo=android-studio&logoColor=white" height="25">
-</p>
-
-<br>
-
+<br clear="right">
 ---
 
-<h2 align="center">📦 Featured Project</h2>
+<h2 id="-featured-project">📦 Featured Project</h2>
 
-<div align="center">
+<table>
+<tr>
+
+<td width="50%" valign="middle">
 
 ### [PCDrop](https://github.com/udaysai12/PCDrop)
 **Local Wi-Fi File Transfer — No Cloud. No Limits. No Compromise.**
@@ -93,11 +36,55 @@
 | 📱 Mobile | Flutter |
 | 🔥 Fallback | Windows Hotspot mode |
 
-</div>
+</td>
+<td width="50%" align="center" valign="middle">
+<img src="https://media.giphy.com/media/SWoSkN6DxTszqIKEqv/giphy.gif" height="220">
+</td>
+</tr>
+</table>
+
+---
+<h2 id="-skills"><img src="https://media2.giphy.com/media/QssGEmpkyEOhBCb7e1/giphy.gif?cid=ecf05e47a0n3gi1bfqntqmob8g9aid1oyj2wr3ds3mg700bl&rid=giphy.gif" width="45px" height="45px"> Skills & Tools</h2>
+
+<p align="center">
+<img src="https://img.shields.io/badge/-TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" height="25">&nbsp;
+<img src="https://img.shields.io/badge/-JavaScript-black?style=for-the-badge&logo=javascript" height="25">&nbsp;
+<img src="https://img.shields.io/badge/-React-61DAFB?style=for-the-badge&logo=react&logoColor=black" height="25">
+</p>
+<p align="center">
+<img src="https://img.shields.io/badge/-Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white" height="25">&nbsp;
+<img src="https://img.shields.io/badge/-Node.js-339933?style=for-the-badge&logo=nodedotjs" height="25">&nbsp;
+<img src="https://img.shields.io/badge/-Express.js-black?style=for-the-badge&logo=express" height="25">
+</p>
+<p align="center">
+<img src="https://img.shields.io/badge/-React_Native-61DAFB?style=for-the-badge&logo=react&logoColor=black" height="25">&nbsp;
+<img src="https://img.shields.io/badge/-Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white" height="25">&nbsp;
+<img src="https://img.shields.io/badge/-Electron-47848F?style=for-the-badge&logo=electron&logoColor=white" height="25">
+</p>
+<p align="center">
+<img src="https://img.shields.io/badge/-Python-3776AB?style=for-the-badge&logo=python&logoColor=white" height="25">&nbsp;
+<img src="https://img.shields.io/badge/-Django-092E20?style=for-the-badge&logo=django" height="25">&nbsp;
+<img src="https://img.shields.io/badge/-TailwindCSS-38B2AC?style=for-the-badge&logo=tailwind-css" height="25">
+</p>
+<p align="center">
+<img src="https://img.shields.io/badge/-MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white" height="25">&nbsp;
+<img src="https://img.shields.io/badge/-PostgreSQL-336791?style=for-the-badge&logo=postgresql&logoColor=white" height="25">&nbsp;
+<img src="https://img.shields.io/badge/-MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white" height="25">&nbsp;
+<img src="https://img.shields.io/badge/-Redis-DC382D?style=for-the-badge&logo=redis&logoColor=white" height="25">
+</p>
+<p align="center">
+<img src="https://img.shields.io/badge/-Git-F05032?style=for-the-badge&logo=git&logoColor=white" height="25">&nbsp;
+<img src="https://img.shields.io/badge/-GitHub-181717?style=for-the-badge&logo=github&logoColor=white" height="25">&nbsp;
+<img src="https://img.shields.io/badge/-VSCode-007ACC?style=for-the-badge&logo=visual-studio-code&logoColor=white" height="25">&nbsp;
+<img src="https://img.shields.io/badge/-Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white" height="25">&nbsp;
+<img src="https://img.shields.io/badge/-Android_Studio-3DDC84?style=for-the-badge&logo=android-studio&logoColor=white" height="25">
+</p>
 
 ---
 
-<h2 align="center">📁 Projects</h2>
+<h2 id="-projects">📁 Projects</h2>
+
+<img src="https://user-images.githubusercontent.com/74038190/216122041-518ac897-8d92-4c6b-9b3f-ca01dcaf38ee.gif" width="280" align="right">
 
 | # | Project | Stack | Type |
 |---|---|---|---|
@@ -112,18 +99,9 @@
 | 09 | **Online Outpass System** | Python, Django | Web |
 | 10 | **Correct News App** | React Native, REST API | Mobile |
 
----
-
-<h2 align="center">📊 GitHub Stats</h2>
-
-<div align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=udaysai12&show_icons=true&theme=tokyonight&count_private=true&hide_border=true&title_color=00FFFF&icon_color=00FFFF&cache_seconds=1800" width="48%" />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=udaysai12&layout=compact&theme=tokyonight&hide_border=true&cache_seconds=1800" width="38%" />
-</div>
+<br clear="right">
 
 ---
-
-<h2 align="center">🐍 Contribution Snake</h2>
 
 <h2 align="center">📊 GitHub Stats</h2>
 
@@ -133,15 +111,26 @@
 
 ---
 
-<h2 align="center">🏆 Achievements</h2>
+<h2 align="center">🐍 Contribution Snake</h2>
 
 <div align="center">
-  <img src="https://github-profile-trophy.vercel.app/?username=udaysai12&theme=darkhub&no-frame=true&column=4&margin-w=10&cache_seconds=1800" />
+  <img src="https://raw.githubusercontent.com/udaysai12/udaysai12/output/github-contribution-grid-snake-dark.svg" width="100%">
 </div>
 
 ---
 
-<h2 id="-connect" align="center"><img src="https://raw.githubusercontent.com/ShahriarShafin/ShahriarShafin/main/Assets/handshake.gif" width="50px" height="50px"> Connect With Me</h2>
+<h2 id="-mood">😂 Coding Mood</h2>
+
+<img src="https://media.giphy.com/media/mCRJDo24UvJMA/giphy.gif" width="220" align="left">
+<img src="https://media.giphy.com/media/13GIgrGdslD9oQ/giphy.gif" width="220" align="right">
+
+<p align="center">Debugging at 2 AM be like ⬆️⬆️</p>
+
+<br clear="both">
+
+---
+
+<h2 id="-connect" align="center"><img src="https://raw.githubusercontent.com/ShahriarShafin/ShahriarShafin/main/Assets/handshake.gif" width="45px" height="45px"> Connect With Me</h2>
 
 <p align="center">
   <a href="https://github.com/udaysai12"><img src="https://img.shields.io/badge/-udaysai12-black?logo=github&style=flat-square"></a>
@@ -152,5 +141,9 @@
 
 <hr>
 
+<p align="center">
+  <img src="https://profile-counter.glitch.me/udaysai12/count.svg" alt="Visitor Count">
+</p>
+
 <p align="center">💛 Thanks for stopping by — star <a href="https://github.com/udaysai12/PCDrop">PCDrop</a> if you like it!</p>
-<p>Last Edited on: 09/07/2026</p>
+<p align="center">Last Edited on: 09/07/2026</p>
