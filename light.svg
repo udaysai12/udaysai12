@@ -14,6 +14,26 @@
       <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
 
+    <!-- Portrait recolor filter light: black dots → #6D28D9, white → transparent -->
+    <filter id="portrait-recolor-light" color-interpolation-filters="sRGB" x="0" y="0" width="1" height="1">
+      <!-- Step 1: Invert (black dots become white, white bg becomes black) -->
+      <feComponentTransfer result="inverted">
+        <feFuncR type="linear" slope="-1" intercept="1"/>
+        <feFuncG type="linear" slope="-1" intercept="1"/>
+        <feFuncB type="linear" slope="-1" intercept="1"/>
+      </feComponentTransfer>
+      <!-- Step 2: Use inverted luma as alpha -->
+      <feColorMatrix type="matrix" in="inverted" result="alphaMask"
+        values="0 0 0 0 0
+                0 0 0 0 0
+                0 0 0 0 0
+                0.33 0.33 0.33 0 0"/>
+      <!-- Step 3: Flood-fill with dark purple #6D28D9 -->
+      <feFlood flood-color="#6D28D9" flood-opacity="0.85" result="color"/>
+      <!-- Step 4: Composite color through alpha mask -->
+      <feComposite in="color" in2="alphaMask" operator="in"/>
+    </filter>
+
     <!-- Light mode dot pattern -->
     <pattern id="dot-grid-light" x="0" y="0" width="4" height="4" patternUnits="userSpaceOnUse">
       <circle cx="2" cy="2" r="0.9" fill="#7C3AED" opacity="0.15"/>
@@ -135,150 +155,20 @@
   <!-- Portrait frame -->
   <rect x="32" y="92" width="408" height="480" rx="4" fill="#EDE9FE" stroke="#7C3AED" stroke-width="1" stroke-opacity="0.4"/>
 
-  <!-- Light mode dot portrait — dots represent the dark/shadow areas -->
+  <!-- ═══ REAL DITHERED PORTRAIT — light mode ═══ -->
+  <!-- portrait.svg: black dots = dark face detail on light panel        -->
+  <!-- Filter: inverts → luma as alpha → floods dark purple #6D28D9     -->
+  <!-- Result: dark purple dots on lavender panel, background transparent -->
   <g clip-path="url(#portrait-clip)">
-    <!-- Subtle background dots -->
-    <rect x="32" y="92" width="408" height="480" fill="url(#dot-grid-light)"/>
-
-    <!-- Head shadow dots (light mode: shadows = dense dark dots) -->
-    <!-- Top of head outline -->
-    <g class="dot-group" style="animation-delay: 0.1s">
-      <circle cx="150" cy="120" r="1.2" fill="#7C3AED" opacity="0.8"/>
-      <circle cx="158" cy="115" r="1.2" fill="#6D28D9" opacity="0.9"/>
-      <circle cx="166" cy="112" r="1.2" fill="#7C3AED" opacity="0.8"/>
-      <circle cx="174" cy="110" r="1.2" fill="#6D28D9" opacity="0.9"/>
-      <circle cx="182" cy="109" r="1.4" fill="#7C3AED"/>
-      <circle cx="190" cy="108" r="1.4" fill="#6D28D9"/>
-      <circle cx="198" cy="107" r="1.4" fill="#7C3AED"/>
-      <circle cx="206" cy="107" r="1.4" fill="#6D28D9"/>
-      <circle cx="214" cy="106" r="1.4" fill="#7C3AED"/>
-      <circle cx="222" cy="107" r="1.4" fill="#6D28D9"/>
-      <circle cx="230" cy="107" r="1.4" fill="#7C3AED"/>
-      <circle cx="238" cy="108" r="1.4" fill="#6D28D9"/>
-      <circle cx="246" cy="109" r="1.2" fill="#7C3AED"/>
-      <circle cx="254" cy="111" r="1.2" fill="#6D28D9"/>
-      <circle cx="262" cy="113" r="1.2" fill="#7C3AED"/>
-      <circle cx="270" cy="116" r="1.2" fill="#6D28D9"/>
-      <circle cx="278" cy="120" r="1.2" fill="#7C3AED"/>
-    </g>
-
-    <!-- Face shadow dots - eye sockets, nose shadow etc -->
-    <g class="dot-group" style="animation-delay: 0.3s">
-      <!-- Left eye socket shadow -->
-      <circle cx="168" cy="162" r="2.0" fill="#4C1D95"/>
-      <circle cx="176" cy="160" r="2.2" fill="#5B21B6"/>
-      <circle cx="184" cy="159" r="2.2" fill="#4C1D95"/>
-      <circle cx="192" cy="161" r="2.0" fill="#5B21B6"/>
-      <circle cx="175" cy="167" r="1.6" fill="#6D28D9"/>
-      <circle cx="183" cy="166" r="1.6" fill="#4C1D95"/>
-      <circle cx="191" cy="167" r="1.6" fill="#5B21B6"/>
-      <!-- Right eye socket shadow -->
-      <circle cx="236" cy="161" r="2.0" fill="#4C1D95"/>
-      <circle cx="244" cy="159" r="2.2" fill="#5B21B6"/>
-      <circle cx="252" cy="160" r="2.2" fill="#4C1D95"/>
-      <circle cx="260" cy="162" r="2.0" fill="#5B21B6"/>
-      <circle cx="239" cy="167" r="1.6" fill="#6D28D9"/>
-      <circle cx="247" cy="166" r="1.6" fill="#4C1D95"/>
-      <circle cx="255" cy="167" r="1.6" fill="#5B21B6"/>
-    </g>
-
-    <!-- Eyebrows (dark in light mode) -->
-    <g class="dot-group" style="animation-delay: 0.35s">
-      <circle cx="166" cy="151" r="1.6" fill="#3B0764"/>
-      <circle cx="174" cy="149" r="1.8" fill="#4C1D95"/>
-      <circle cx="182" cy="148" r="1.8" fill="#3B0764"/>
-      <circle cx="190" cy="149" r="1.6" fill="#4C1D95"/>
-      <circle cx="232" cy="149" r="1.6" fill="#4C1D95"/>
-      <circle cx="240" cy="148" r="1.8" fill="#3B0764"/>
-      <circle cx="248" cy="149" r="1.8" fill="#4C1D95"/>
-      <circle cx="256" cy="151" r="1.6" fill="#3B0764"/>
-    </g>
-
-    <!-- Nose shadow -->
-    <g class="dot-group" style="animation-delay: 0.5s">
-      <circle cx="204" cy="196" r="1.6" fill="#6D28D9" opacity="0.7"/>
-      <circle cx="212" cy="199" r="1.6" fill="#5B21B6" opacity="0.6"/>
-      <circle cx="220" cy="199" r="1.6" fill="#6D28D9" opacity="0.6"/>
-      <circle cx="228" cy="196" r="1.6" fill="#5B21B6" opacity="0.7"/>
-      <circle cx="208" cy="185" r="1.2" fill="#6D28D9" opacity="0.5"/>
-      <circle cx="224" cy="185" r="1.2" fill="#5B21B6" opacity="0.5"/>
-    </g>
-
-    <!-- Lips shadow -->
-    <g class="dot-group" style="animation-delay: 0.6s">
-      <circle cx="196" cy="216" r="1.4" fill="#5B21B6" opacity="0.7"/>
-      <circle cx="204" cy="215" r="1.6" fill="#4C1D95" opacity="0.8"/>
-      <circle cx="212" cy="214" r="1.6" fill="#3B0764" opacity="0.9"/>
-      <circle cx="220" cy="214" r="1.6" fill="#4C1D95" opacity="0.9"/>
-      <circle cx="228" cy="215" r="1.6" fill="#3B0764" opacity="0.8"/>
-      <circle cx="236" cy="216" r="1.4" fill="#4C1D95" opacity="0.7"/>
-      <!-- Lower lip -->
-      <circle cx="204" cy="224" r="1.4" fill="#5B21B6" opacity="0.6"/>
-      <circle cx="212" cy="226" r="1.4" fill="#4C1D95" opacity="0.7"/>
-      <circle cx="220" cy="226" r="1.4" fill="#5B21B6" opacity="0.7"/>
-      <circle cx="228" cy="224" r="1.4" fill="#4C1D95" opacity="0.6"/>
-    </g>
-
-    <!-- Jaw outline -->
-    <g class="dot-group" style="animation-delay: 0.65s">
-      <circle cx="160" cy="200" r="1.2" fill="#7C3AED" opacity="0.4"/>
-      <circle cx="158" cy="215" r="1.2" fill="#6D28D9" opacity="0.4"/>
-      <circle cx="162" cy="230" r="1.4" fill="#5B21B6" opacity="0.5"/>
-      <circle cx="170" cy="242" r="1.4" fill="#6D28D9" opacity="0.5"/>
-      <circle cx="180" cy="250" r="1.4" fill="#5B21B6" opacity="0.5"/>
-      <circle cx="192" cy="254" r="1.4" fill="#4C1D95" opacity="0.5"/>
-      <circle cx="204" cy="255" r="1.4" fill="#5B21B6" opacity="0.5"/>
-      <circle cx="216" cy="256" r="1.4" fill="#4C1D95" opacity="0.5"/>
-      <circle cx="228" cy="255" r="1.4" fill="#5B21B6" opacity="0.5"/>
-      <circle cx="240" cy="254" r="1.4" fill="#4C1D95" opacity="0.5"/>
-      <circle cx="252" cy="250" r="1.4" fill="#5B21B6" opacity="0.5"/>
-      <circle cx="262" cy="242" r="1.4" fill="#6D28D9" opacity="0.5"/>
-      <circle cx="270" cy="230" r="1.4" fill="#5B21B6" opacity="0.5"/>
-      <circle cx="274" cy="215" r="1.2" fill="#7C3AED" opacity="0.4"/>
-      <circle cx="272" cy="200" r="1.2" fill="#7C3AED" opacity="0.4"/>
-    </g>
-
-    <!-- Neck shadow (collar) -->
-    <g class="dot-group" style="animation-delay: 0.7s">
-      <circle cx="200" cy="270" r="1.4" fill="#6D28D9" opacity="0.5"/>
-      <circle cx="208" cy="272" r="1.4" fill="#5B21B6" opacity="0.5"/>
-      <circle cx="216" cy="273" r="1.4" fill="#6D28D9" opacity="0.5"/>
-      <circle cx="224" cy="272" r="1.4" fill="#5B21B6" opacity="0.5"/>
-      <circle cx="232" cy="270" r="1.4" fill="#6D28D9" opacity="0.5"/>
-    </g>
-
-    <!-- Shoulder edges - clothing -->
-    <g class="dot-group" style="animation-delay: 0.75s">
-      <circle cx="115" cy="296" r="1.4" fill="#5B21B6" opacity="0.6"/>
-      <circle cx="128" cy="289" r="1.4" fill="#4C1D95" opacity="0.6"/>
-      <circle cx="141" cy="284" r="1.4" fill="#5B21B6" opacity="0.6"/>
-      <circle cx="154" cy="281" r="1.4" fill="#4C1D95" opacity="0.6"/>
-      <circle cx="167" cy="279" r="1.4" fill="#5B21B6" opacity="0.6"/>
-      <circle cx="180" cy="278" r="1.4" fill="#4C1D95" opacity="0.6"/>
-      <circle cx="193" cy="277" r="1.4" fill="#5B21B6" opacity="0.6"/>
-      <circle cx="250" cy="277" r="1.4" fill="#4C1D95" opacity="0.6"/>
-      <circle cx="263" cy="278" r="1.4" fill="#5B21B6" opacity="0.6"/>
-      <circle cx="276" cy="279" r="1.4" fill="#4C1D95" opacity="0.6"/>
-      <circle cx="289" cy="281" r="1.4" fill="#5B21B6" opacity="0.6"/>
-      <circle cx="302" cy="284" r="1.4" fill="#4C1D95" opacity="0.6"/>
-      <circle cx="315" cy="289" r="1.4" fill="#5B21B6" opacity="0.6"/>
-      <circle cx="318" cy="296" r="1.4" fill="#4C1D95" opacity="0.6"/>
-    </g>
-
-    <!-- Body shading dots -->
-    <g class="dot-group" style="animation-delay: 0.85s">
-      <circle cx="110" cy="320" r="1.2" fill="#6D28D9" opacity="0.4"/>
-      <circle cx="125" cy="315" r="1.2" fill="#5B21B6" opacity="0.4"/>
-      <circle cx="140" cy="312" r="1.2" fill="#4C1D95" opacity="0.35"/>
-      <circle cx="155" cy="310" r="1.2" fill="#5B21B6" opacity="0.35"/>
-      <circle cx="320" cy="315" r="1.2" fill="#6D28D9" opacity="0.4"/>
-      <circle cx="305" cy="312" r="1.2" fill="#5B21B6" opacity="0.4"/>
-      <circle cx="290" cy="310" r="1.2" fill="#4C1D95" opacity="0.35"/>
-    </g>
-  </g>
-
-  <!-- Portrait bottom fade -->
-  <rect x="32" y="440" width="408" height="132" fill="url(#portrait-bottom-fade-light)" clip-path="url(#portrait-clip)"/>
+    <image
+      href="https://raw.githubusercontent.com/udaysai12/udaysai12/main/portrait.svg"
+      x="32" y="92"
+      width="408" height="480"
+      preserveAspectRatio="xMidYMid meet"
+      filter="url(#portrait-recolor-light)"
+    />
+    <!-- Bottom fade so portrait dissolves into light panel -->
+    <rect x="32" y="430" width="408" height="142" fill="url(#portrait-bottom-fade-light)"/>
 
   <!-- Portrait scan line -->
   <rect x="32" y="92" width="408" height="2" fill="rgba(8,145,178,0.1)" class="scan-line"/>
