@@ -137,12 +137,17 @@ def hero():
     p_img = ROOT / "assets" / "portrait.png"
     if p_img.exists():
         b64_img = base64.b64encode(p_img.read_bytes()).decode("utf-8")
-        portrait_svg = (
-            f'<image class="f" style="animation-delay:0.30s" '
-            f'href="data:image/png;base64,{b64_img}" '
-            f'x="485" y="16" width="375" height="388" '
-            f'preserveAspectRatio="xMidYMid meet"/>'
-        )
+        portrait_svg = f"""
+        <g class="float-portrait">
+          <image href="data:image/png;base64,{b64_img}" x="485" y="16" width="375" height="388" preserveAspectRatio="xMidYMid meet"/>
+          <clipPath id="pclip">
+            <rect x="485" y="16" width="375" height="388" rx="8"/>
+          </clipPath>
+          <g clip-path="url(#pclip)">
+            <rect class="scan-beam" x="485" y="16" width="375" height="50" fill="url(#pbeam)" opacity=".22"/>
+          </g>
+        </g>
+        """
     else:
         portrait_svg = ""
 
@@ -154,6 +159,11 @@ def hero():
         <stop offset="1" stop-color="{INK}"/>
         <animateTransform attributeName="gradientTransform" type="translate" values="-600 0;600 0;600 0"
           keyTimes="0;.45;1" dur="7s" begin="1.6s" repeatCount="indefinite"/>
+      </linearGradient>
+      <linearGradient id="pbeam" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="{BLUE}" stop-opacity="0"/>
+        <stop offset="0.5" stop-color="{BLUE}" stop-opacity="0.8"/>
+        <stop offset="1" stop-color="{BLUE}" stop-opacity="0"/>
       </linearGradient>
     </defs>
     """
