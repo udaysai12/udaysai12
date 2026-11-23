@@ -10,6 +10,8 @@
 <a href="https://github.com/udaysai12?tab=repositories"><img src="./cards/ship.svg" width="32.5%" alt="Ship" /></a>
 <a href="https://www.linkedin.com/in/uday-sai-setti-a24332275/"><img src="./cards/lead.svg" width="32.5%" alt="Lead" /></a>
 
+<img src="./cards/skills.svg" width="100%" alt="Tech Stack and Core Competencies" />
+
 <br/>
 
 ### 🚀 Personal & Open Source Projects

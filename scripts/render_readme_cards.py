@@ -287,6 +287,53 @@ def latest_card():
     b += t(42, 118, commit_msg, 15, MUTED, delay=0.5)
     return svg(900, 144, b)
 
+# ---------- skills card ----------
+def skills_card():
+    b = f'<circle class="pulse c" cx="42" cy="40" r="5" fill="{BLUE}"/>'
+    b += t(58, 44, "TECH STACK & CORE COMPETENCIES", 12, BLUE, delay=0.1, weight=700)
+    b += t(862, 44, "Full Stack · Mobile · Applied AI", 13, MUTED, delay=0.2, anchor="end")
+    b += t(42, 88, "Technologies & Tooling", 34, INK, "serif", delay=0.3)
+    b += f'<text class="nudge" x="862" y="88" font-size="24" fill="{INK}" text-anchor="end">→</text>'
+
+    SECTIONS = [
+        ("FRONTEND & MOBILE", "#2F5BFF", [
+            ["React", "React Native", "Flutter", "Next.js"],
+            ["TypeScript", "JavaScript", "Expo", "Tailwind CSS"],
+        ]),
+        ("BACKEND & APIS", "#059669", [
+            ["Node.js", "Python", "FastAPI", "Django REST"],
+            ["Express", "PHP", "WebSockets", "RESTful APIs"],
+        ]),
+        ("AI / ML & COMPUTER VISION", "#D97706", [
+            ["MediaPipe", "TensorFlow", "OpenCV", "TFLite"],
+            ["Three.js", "Applied AI", "Prompt Eng.", "Vision Models"],
+        ]),
+        ("DATABASE & DEVOPS", "#7C3AED", [
+            ["MongoDB", "PostgreSQL", "Redis", "Docker"],
+            ["Git & GitHub", "Linux", "Firebase", "CI / CD"],
+        ]),
+    ]
+
+    coords = [
+        (36, 110),
+        (458, 110),
+        (36, 214),
+        (458, 214),
+    ]
+
+    for idx, ((title, color, rows), (x, y)) in enumerate(zip(SECTIONS, coords)):
+        d = 0.5 + idx * 0.1
+        b += f'<rect class="pop c" x="{x}" y="{y}" width="406" height="92" rx="10" fill="#EFE8DA" stroke="#DDD5C4" stroke-width="1" style="animation-delay:{d:.2f}s"/>'
+        b += f'<circle cx="{x + 20}" cy="{y + 24}" r="4" fill="{color}"/>'
+        b += t(x + 32, y + 28, title, 11, color, delay=d + 0.05, weight=700)
+        
+        line1 = "  ·  ".join(rows[0])
+        b += t(x + 20, y + 54, line1, 13, INK, delay=d + 0.1, weight=500)
+        line2 = "  ·  ".join(rows[1])
+        b += t(x + 20, y + 76, line2, 13, MUTED, delay=d + 0.15, weight=500)
+
+    return svg(900, 326, b)
+
 # ---------- repo cards ----------
 def repo_card(i, spec, badge="PERSONAL", badge_color="#2F5BFF"):
     name, desc, stack = spec[:3]
@@ -304,6 +351,7 @@ def write(name, content):
 
 write("hero", hero())
 write("latest", latest_card())
+write("skills", skills_card())
 write("graph", graph())
 write("months", months())
 for i, spec in enumerate(TILES):
@@ -313,5 +361,5 @@ for i, spec in enumerate(PERSONAL_REPOS, start=1):
 for i, spec in enumerate(COLLAB_REPOS, start=1):
     write(f"collab-{i}", repo_card(i - 1, spec, badge="Collaboration / Team", badge_color="#059669"))
 
-total_cards = 4 + len(TILES) + len(PERSONAL_REPOS) + len(COLLAB_REPOS)
+total_cards = 5 + len(TILES) + len(PERSONAL_REPOS) + len(COLLAB_REPOS)
 print("rendered", total_cards, "cards", "(static)" if STATIC else "")
