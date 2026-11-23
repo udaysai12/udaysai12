@@ -29,3 +29,5 @@
 
 <a href="https://github.com/udaysai12"><img src="./cards/collab-3.svg" width="49%" alt="Jatayuv AI" /></a>
 <a href="https://github.com/udaysai12"><img src="./cards/collab-4.svg" width="49%" alt="Dentoji" /></a>
+
+<!-- Crafted with modern editorial design · Uday Sai Setti -->
