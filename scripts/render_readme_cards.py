@@ -71,6 +71,11 @@ text{font-family:'Sans',-apple-system,'Segoe UI',system-ui,sans-serif}
 .f{opacity:0;animation:fade .9s ease-out both}
 .live{animation:pulse 1.6s ease-in-out infinite}
 .nu{transform-box:fill-box;animation:nudgeup 1.8s ease-in-out infinite}
+.float-portrait{transform-box:fill-box;transform-origin:center;animation:portrait-rise 1.1s cubic-bezier(.2,.8,.2,1) both, portrait-float 5s ease-in-out 1.2s infinite}
+@keyframes portrait-rise{from{opacity:0;transform:translateY(30px) scale(.94)}to{opacity:1;transform:none}}
+@keyframes portrait-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes scanline{0%{transform:translateY(-120%)}100%{transform:translateY(280%)}}
+.scan-beam{animation:scanline 4.8s cubic-bezier(.4,0,.2,1) infinite}
 @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 @keyframes fade{from{opacity:0}to{opacity:1}}
 @keyframes pop{from{opacity:0;transform:scale(.2)}to{opacity:1;transform:scale(1)}}
@@ -129,19 +134,17 @@ busiest = max(days, key=lambda d: d["count"])
 
 # ---------- hero ----------
 def hero():
-    ascii_file = ROOT / "data" / "portrait_ascii.json"
-    ascii_lines = json.loads(ascii_file.read_text(encoding="utf-8")) if ascii_file.exists() else []
-
-    ascii_svg = ""
-    for i, line in enumerate(ascii_lines):
-        y_pos = 43.2 + i * 8.33
-        delay = 0.25 + i * (1.96 - 0.25) / max(1, len(ascii_lines) - 1)
-        esc_line = html.escape(line)
-        ascii_svg += (
-            f'<text class="f" style="animation-delay:{delay:.3f}s;animation-duration:.35s" '
-            f'xml:space="preserve" x="20" y="{y_pos:.1f}" fill="{INK}" font-size="7.2" '
-            f'textLength="800" lengthAdjust="spacing">{esc_line}</text>'
+    p_img = ROOT / "assets" / "portrait.png"
+    if p_img.exists():
+        b64_img = base64.b64encode(p_img.read_bytes()).decode("utf-8")
+        portrait_svg = (
+            f'<image class="f" style="animation-delay:0.30s" '
+            f'href="data:image/png;base64,{b64_img}" '
+            f'x="485" y="16" width="375" height="388" '
+            f'preserveAspectRatio="xMidYMid meet"/>'
         )
+    else:
+        portrait_svg = ""
 
     defs = f"""
     <defs>
@@ -170,9 +173,7 @@ def hero():
       <text x="48" y="320" font-family="'Sans', ui-monospace, monospace" font-size="13" fill="{INK}">github.com/udaysai12</text>
       <text class="nu" x="202" y="320" font-family="'Sans', ui-monospace, monospace" font-size="13" fill="{BLUE}">&#8599;</text>
     </g>
-    <g transform="translate(520 46) scale(0.41) translate(-20 -37)" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
-      {ascii_svg}
-    </g>
+    {portrait_svg}
     """
     return (
         f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 420" width="880" height="420">'
