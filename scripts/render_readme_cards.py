@@ -287,6 +287,53 @@ def latest_card():
     b += t(42, 118, commit_msg, 15, MUTED, delay=0.5)
     return svg(900, 144, b)
 
+# ---------- tech icons & colors ----------
+ICONS_FILE = ROOT / "data" / "tech_icons.json"
+TECH_ICONS = json.loads(ICONS_FILE.read_text(encoding="utf-8")) if ICONS_FILE.exists() else {}
+
+TECH_COLORS = {
+    "react": "#087EA4",
+    "flutter": "#02569B",
+    "nextdotjs": "#16130F",
+    "typescript": "#3178C6",
+    "javascript": "#D4A800",
+    "expo": "#16130F",
+    "tailwindcss": "#06B6D4",
+    "dart": "#0175C2",
+    "nodedotjs": "#417E38",
+    "python": "#3776AB",
+    "fastapi": "#009688",
+    "django": "#092E20",
+    "express": "#16130F",
+    "php": "#61669C",
+    "tensorflow": "#E65100",
+    "opencv": "#5C3EE8",
+    "threedotjs": "#16130F",
+    "mongodb": "#3FA037",
+    "postgresql": "#336791",
+    "redis": "#C62828",
+    "docker": "#1D63ED",
+    "git": "#E64A19",
+    "linux": "#D49800",
+    "firebase": "#F57C00",
+}
+
+def render_pill(x, y, icon_key, label, text_color="#16130F", bg="#FDFBF7"):
+    path = TECH_ICONS.get(icon_key, "")
+    color = TECH_COLORS.get(icon_key, BLUE)
+    w = 14 + 6 + len(label) * 7.0 + 16
+    pill = f'<g class="c">'
+    pill += f'<rect x="{x}" y="{y}" width="{w:.1f}" height="26" rx="6" fill="{bg}" stroke="#DDD5C4" stroke-width="1"/>'
+    if path:
+        pill += f'<g transform="translate({x + 7}, {y + 6}) scale(0.583)"><path d="{path}" fill="{color}"/></g>'
+        tx = x + 25
+    else:
+        pill += f'<circle cx="{x + 10}" cy="{y + 13}" r="3" fill="{color}"/>'
+        tx = x + 18
+    pill += f'<text x="{tx}" y="{y + 17}" font-family="\'Sans\', system-ui, sans-serif" font-size="11.5" font-weight="600" fill="{text_color}">{html.escape(label)}</text>'
+    pill += '</g>'
+    return pill, w
+
 # ---------- skills card ----------
 def skills_card():
     b = f'<circle class="pulse c" cx="42" cy="40" r="5" fill="{BLUE}"/>'
@@ -297,42 +344,49 @@ def skills_card():
 
     SECTIONS = [
         ("FRONTEND & MOBILE", "#2F5BFF", [
-            ["React", "React Native", "Flutter", "Next.js"],
-            ["TypeScript", "JavaScript", "Expo", "Tailwind CSS"],
+            [("react", "React"), ("flutter", "Flutter"), ("nextdotjs", "Next.js"), ("dart", "Dart")],
+            [("typescript", "TypeScript"), ("javascript", "JavaScript"), ("tailwindcss", "Tailwind"), ("expo", "Expo")]
         ]),
         ("BACKEND & APIS", "#059669", [
-            ["Node.js", "Python", "FastAPI", "Django REST"],
-            ["Express", "PHP", "WebSockets", "RESTful APIs"],
+            [("python", "Python"), ("nodedotjs", "Node.js"), ("fastapi", "FastAPI"), ("php", "PHP")],
+            [("django", "Django"), ("express", "Express"), ("api", "REST APIs"), ("ws", "WebSockets")]
         ]),
         ("AI / ML & COMPUTER VISION", "#D97706", [
-            ["MediaPipe", "TensorFlow", "OpenCV", "TFLite"],
-            ["Three.js", "Applied AI", "Prompt Eng.", "Vision Models"],
+            [("tensorflow", "TensorFlow"), ("opencv", "OpenCV"), ("threedotjs", "Three.js")],
+            [("mediapipe", "MediaPipe"), ("ai", "Applied AI"), ("tflite", "TFLite")]
         ]),
         ("DATABASE & DEVOPS", "#7C3AED", [
-            ["MongoDB", "PostgreSQL", "Redis", "Docker"],
-            ["Git & GitHub", "Linux", "Firebase", "CI / CD"],
+            [("docker", "Docker"), ("mongodb", "MongoDB"), ("postgresql", "PostgreSQL"), ("redis", "Redis")],
+            [("git", "Git"), ("linux", "Linux"), ("firebase", "Firebase"), ("ci", "CI / CD")]
         ]),
     ]
 
     coords = [
         (36, 110),
         (458, 110),
-        (36, 214),
-        (458, 214),
+        (36, 240),
+        (458, 240),
     ]
 
-    for idx, ((title, color, rows), (x, y)) in enumerate(zip(SECTIONS, coords)):
-        d = 0.5 + idx * 0.1
-        b += f'<rect class="pop c" x="{x}" y="{y}" width="406" height="92" rx="10" fill="#EFE8DA" stroke="#DDD5C4" stroke-width="1" style="animation-delay:{d:.2f}s"/>'
-        b += f'<circle cx="{x + 20}" cy="{y + 24}" r="4" fill="{color}"/>'
-        b += t(x + 32, y + 28, title, 11, color, delay=d + 0.05, weight=700)
-        
-        line1 = "  ·  ".join(rows[0])
-        b += t(x + 20, y + 54, line1, 13, INK, delay=d + 0.1, weight=500)
-        line2 = "  ·  ".join(rows[1])
-        b += t(x + 20, y + 76, line2, 13, MUTED, delay=d + 0.15, weight=500)
+    for idx, ((title, color, rows), (bx, by)) in enumerate(zip(SECTIONS, coords)):
+        d = 0.4 + idx * 0.1
+        b += f'<rect class="pop c" x="{bx}" y="{by}" width="406" height="116" rx="12" fill="#EFE8DA" stroke="#DDD5C4" stroke-width="1" style="animation-delay:{d:.2f}s"/>'
+        b += f'<circle cx="{bx + 18}" cy="{by + 24}" r="4" fill="{color}"/>'
+        b += f'<text x="{bx + 28}" y="{by + 28}" font-size="11" font-weight="700" fill="{color}">{title}</text>'
 
-    return svg(900, 326, b)
+        curr_x = bx + 16
+        for icon_key, label in rows[0]:
+            pill, pw = render_pill(curr_x, by + 44, icon_key, label)
+            b += pill
+            curr_x += pw + 8
+
+        curr_x = bx + 16
+        for icon_key, label in rows[1]:
+            pill, pw = render_pill(curr_x, by + 78, icon_key, label)
+            b += pill
+            curr_x += pw + 8
+
+    return svg(900, 374, b)
 
 # ---------- repo cards ----------
 def repo_card(i, spec, badge="PERSONAL", badge_color="#2F5BFF"):
