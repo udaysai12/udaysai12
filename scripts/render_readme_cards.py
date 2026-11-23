@@ -71,11 +71,8 @@ text{font-family:'Sans',-apple-system,'Segoe UI',system-ui,sans-serif}
 .f{opacity:0;animation:fade .9s ease-out both}
 .live{animation:pulse 1.6s ease-in-out infinite}
 .nu{transform-box:fill-box;animation:nudgeup 1.8s ease-in-out infinite}
-.float-portrait{transform-box:fill-box;transform-origin:center;animation:portrait-rise 1.1s cubic-bezier(.2,.8,.2,1) both, portrait-float 5s ease-in-out 1.2s infinite}
-@keyframes portrait-rise{from{opacity:0;transform:translateY(30px) scale(.94)}to{opacity:1;transform:none}}
-@keyframes portrait-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
 @keyframes scanline{0%{transform:translateY(-120%)}100%{transform:translateY(280%)}}
-.scan-beam{animation:scanline 4.8s cubic-bezier(.4,0,.2,1) infinite}
+.scan-beam{animation:scanline 4.5s cubic-bezier(.4,0,.2,1) infinite}
 @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 @keyframes fade{from{opacity:0}to{opacity:1}}
 @keyframes pop{from{opacity:0;transform:scale(.2)}to{opacity:1;transform:scale(1)}}
@@ -138,7 +135,7 @@ def hero():
     if p_img.exists():
         b64_img = base64.b64encode(p_img.read_bytes()).decode("utf-8")
         portrait_svg = f"""
-        <g class="float-portrait">
+        <g>
           <image href="data:image/png;base64,{b64_img}" x="485" y="16" width="375" height="388" preserveAspectRatio="xMidYMid meet"/>
           <clipPath id="pclip">
             <rect x="485" y="16" width="375" height="388" rx="8"/>
@@ -162,7 +159,7 @@ def hero():
       </linearGradient>
       <linearGradient id="pbeam" x1="0" y1="0" x2="0" y2="1">
         <stop offset="0" stop-color="{BLUE}" stop-opacity="0"/>
-        <stop offset="0.5" stop-color="{BLUE}" stop-opacity="0.8"/>
+        <stop offset="0.5" stop-color="{BLUE}" stop-opacity="0.75"/>
         <stop offset="1" stop-color="{BLUE}" stop-opacity="0"/>
       </linearGradient>
     </defs>
