@@ -32,13 +32,13 @@ TILES = [  # file, label, big number, caption, description, bg, text colour
 PERSONAL_REPOS = [  # name, description, stack, url
     ("PCDrop", "Local Wi-Fi file transfer — no cloud, cross-platform", "Electron · React · TypeScript · Flutter", "https://github.com/udaysai12/PCDrop"),
     ("Sketch-to-Image AR", "Real-time augmented reality generation pipeline", "Python · MediaPipe · TFLite · OpenCV", "https://github.com/udaysai12"),
-    ("TIE", "ATS resume analyzer scoring profiles out of 100", "React · Django REST · Docker", "https://github.com/udaysai12"),
+    ("WayM8", "Real-time ride-sharing with live tracking & SOS safety", "Flutter · Riverpod · Node · Redis", "https://github.com/udaysai12"),
     ("Palm AR Reveal", "3D object reveal via palm gesture recognition", "MediaPipe · Three.js · Web Audio", "https://github.com/udaysai12"),
 ]
 
 COLLAB_REPOS = [  # name, description, stack, url
     ("Errand LearnHub", "Edtech platform with web, Android app, admin & REST API", "React · Expo · Node · MongoDB", "https://github.com/udaysai12"),
-    ("WayM8", "Real-time ride-sharing with live tracking & SOS safety", "Flutter · Riverpod · Node · Redis", "https://github.com/udaysai12"),
+    ("TIE", "ATS resume analyzer scoring profiles out of 100", "React · Django REST · Docker", "https://github.com/udaysai12"),
     ("Jatayuv AI", "Intelligent mobile assistant and utility platform", "React Native · Expo · FastAPI", "https://github.com/udaysai12"),
     ("Dentoji", "Comprehensive clinic practice & patient management system", "MERN Stack · Tailwind CSS · Docker", "https://github.com/udaysai12"),
 ]

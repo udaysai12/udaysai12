@@ -17,7 +17,7 @@
 <a href="https://github.com/udaysai12/PCDrop"><img src="./cards/repo-1.svg" width="49%" alt="PCDrop" /></a>
 <a href="https://github.com/udaysai12"><img src="./cards/repo-2.svg" width="49%" alt="Sketch-to-Image AR" /></a>
 
-<a href="https://github.com/udaysai12"><img src="./cards/repo-3.svg" width="49%" alt="TIE" /></a>
+<a href="https://github.com/udaysai12"><img src="./cards/repo-3.svg" width="49%" alt="WayM8" /></a>
 <a href="https://github.com/udaysai12"><img src="./cards/repo-4.svg" width="49%" alt="Palm AR Reveal" /></a>
 
 <br/>
@@ -25,7 +25,7 @@
 ### 🤝 Collaborative & Team Projects
 
 <a href="https://github.com/udaysai12"><img src="./cards/collab-1.svg" width="49%" alt="Errand LearnHub" /></a>
-<a href="https://github.com/udaysai12"><img src="./cards/collab-2.svg" width="49%" alt="WayM8" /></a>
+<a href="https://github.com/udaysai12"><img src="./cards/collab-2.svg" width="49%" alt="TIE" /></a>
 
 <a href="https://github.com/udaysai12"><img src="./cards/collab-3.svg" width="49%" alt="Jatayuv AI" /></a>
 <a href="https://github.com/udaysai12"><img src="./cards/collab-4.svg" width="49%" alt="Dentoji" /></a>
