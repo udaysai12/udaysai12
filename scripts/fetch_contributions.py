@@ -16,6 +16,23 @@ query($login:String!,$from:DateTime!,$to:DateTime!){
         weeks{contributionDays{date contributionCount}}
       }
     }
+    repositories(first:10,orderBy:{field:PUSHED_AT,direction:DESC},ownerAffiliations:[OWNER,COLLABORATOR,ORGANIZATION_MEMBER]){
+      nodes{
+        name
+        description
+        url
+        pushedAt
+        defaultBranchRef{
+          name
+          target{
+            ... on Commit{
+              message
+              committedDate
+            }
+          }
+        }
+      }
+    }
   }
 }"""
 
@@ -31,15 +48,29 @@ req = urllib.request.Request(
     headers={"Authorization": f"bearer {TOKEN}", "Content-Type": "application/json"},
 )
 with urllib.request.urlopen(req) as r:
-    cal = json.load(r)["data"]["user"]["contributionsCollection"]["contributionCalendar"]
+    res_user = json.load(r)["data"]["user"]
+    cal = res_user["contributionsCollection"]["contributionCalendar"]
+    repos = res_user.get("repositories", {}).get("nodes", [])
 
 days = [
     {"date": d["date"], "count": d["contributionCount"]}
     for w in cal["weeks"] for d in w["contributionDays"]
 ]
+
+out_data = {"total": cal["totalContributions"], "days": days}
+
+if repos:
+    r0 = repos[0]
+    target = (r0.get("defaultBranchRef") or {}).get("target") or {}
+    out_data["latest"] = {
+        "repo": r0.get("name", "PCDrop"),
+        "message": target.get("message", "Recent activity").split("\n")[0],
+        "date": (target.get("committedDate") or r0.get("pushedAt", ""))[:10],
+        "branch": (r0.get("defaultBranchRef") or {}).get("name", "main"),
+        "url": r0.get("url", f"https://github.com/{USER}"),
+    }
+
 out = Path(__file__).resolve().parent.parent / "data"
 out.mkdir(exist_ok=True)
-(out / "contributions.json").write_text(
-    json.dumps({"total": cal["totalContributions"], "days": days}, indent=1)
-)
+(out / "contributions.json").write_text(json.dumps(out_data, indent=1))
 print("saved", len(days), "days,", cal["totalContributions"], "contributions")
