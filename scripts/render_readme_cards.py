@@ -158,18 +158,17 @@ def hero():
     body = f"""
     {defs}
     <g class="f" style="animation-delay:0.00s">
-      <rect class="live" x="48" y="49" width="8" height="8" rx="2" fill="{BLUE}"/>
-      <text x="66" y="57" font-family="'Sans', ui-monospace, monospace" font-size="12" letter-spacing="1" fill="#6E6E73">FULL STACK, MOBILE &amp; AI / ML ENGINEER</text>
+      <rect class="live" x="48" y="70" width="8" height="8" rx="2" fill="{BLUE}"/>
+      <text x="66" y="78" font-family="'Sans', ui-monospace, monospace" font-size="12" letter-spacing="1" fill="#6E6E73">FULL STACK, MOBILE &amp; AI / ML ENGINEER</text>
     </g>
-    <text class="r" style="animation-delay:0.15s" x="44" y="180" font-family="'Serif', Georgia, serif" font-size="112" letter-spacing="-2.5" fill="{INK}">Uday</text>
-    <text class="r" style="animation-delay:0.30s" x="44" y="278" font-family="'Serif', Georgia, serif" font-style="italic" font-size="112" letter-spacing="-2.5" fill="url(#shine)">Sai Setti</text>
-    <g class="r" style="animation-delay:0.55s">
-      <text x="48" y="328" font-family="'Sans', system-ui, sans-serif" font-size="17" fill="#3A3A3C">I build web &amp; mobile apps, explore applied AI,</text>
-      <text x="48" y="354" font-family="'Sans', system-ui, sans-serif" font-size="17" fill="#3A3A3C">and engineer intelligent full-stack systems.</text>
+    <text class="r" style="animation-delay:0.20s" x="46" y="165" font-family="'Serif', Georgia, serif" font-size="64" letter-spacing="-1" fill="{INK}">Uday <tspan font-style="italic" fill="url(#shine)">Sai Setti</tspan></text>
+    <g class="r" style="animation-delay:0.45s">
+      <text x="48" y="225" font-family="'Sans', system-ui, sans-serif" font-size="17" fill="#3A3A3C">I build web &amp; mobile apps, explore applied AI,</text>
+      <text x="48" y="252" font-family="'Sans', system-ui, sans-serif" font-size="17" fill="#3A3A3C">and engineer intelligent full-stack systems.</text>
     </g>
-    <g class="f" style="animation-delay:0.80s">
-      <text x="48" y="392" font-family="'Sans', ui-monospace, monospace" font-size="13" fill="{INK}">github.com/udaysai12</text>
-      <text class="nu" x="202" y="392" font-family="'Sans', ui-monospace, monospace" font-size="13" fill="{BLUE}">&#8599;</text>
+    <g class="f" style="animation-delay:0.70s">
+      <text x="48" y="320" font-family="'Sans', ui-monospace, monospace" font-size="13" fill="{INK}">github.com/udaysai12</text>
+      <text class="nu" x="202" y="320" font-family="'Sans', ui-monospace, monospace" font-size="13" fill="{BLUE}">&#8599;</text>
     </g>
     <g transform="translate(520 46) scale(0.41) translate(-20 -37)" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
       {ascii_svg}
