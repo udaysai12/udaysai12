@@ -65,13 +65,20 @@ text{font-family:'Sans',-apple-system,'Segoe UI',system-ui,sans-serif}
 .swing{animation:swing .9s cubic-bezier(.2,.9,.3,1.2) both}
 .pulse{animation:pulse 1.8s ease-in-out infinite}
 .nudge{animation:nudge 1.6s ease-in-out infinite}
+.nudgeup{transform-box:fill-box;animation:nudgeup 1.8s ease-in-out infinite}
 .shine{animation:shine 4s ease-in-out infinite}
+.r{opacity:0;animation:rise .8s cubic-bezier(.2,.7,.2,1) both;transform-box:fill-box}
+.f{opacity:0;animation:fade .9s ease-out both}
+.live{animation:pulse 1.6s ease-in-out infinite}
+.nu{transform-box:fill-box;animation:nudgeup 1.8s ease-in-out infinite}
 @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@keyframes fade{from{opacity:0}to{opacity:1}}
 @keyframes pop{from{opacity:0;transform:scale(.2)}to{opacity:1;transform:scale(1)}}
 @keyframes grow{from{transform:scaleY(0)}to{transform:scaleY(1)}}
 @keyframes swing{0%{opacity:0;transform:translateY(46px) rotate(-5deg)}70%{opacity:1;transform:translateY(-4px) rotate(.8deg)}100%{opacity:1;transform:none}}
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(1.5)}}
 @keyframes nudge{0%,100%{transform:translateX(0)}50%{transform:translateX(5px)}}
+@keyframes nudgeup{0%,100%{transform:none}50%{transform:translate(3px,-3px)}}
 @keyframes shine{0%,60%{transform:translateX(-120%)}100%{transform:translateX(260%)}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important}}
 """
@@ -122,17 +129,58 @@ busiest = max(days, key=lambda d: d["count"])
 
 # ---------- hero ----------
 def hero():
-    b = t(48, 80, "Hello, I'm", 22, MUTED, delay=0.1)
-    b += t(48, 148, NAME, 70, INK, "serif", 0.3)
-    b += (
-        f'<clipPath id="nm"><rect x="48" y="90" width="600" height="70"/></clipPath>'
-        f'<g clip-path="url(#nm)"><rect class="shine" x="48" y="90" width="90" height="70" '
-        f'fill="{BLUE}" opacity=".18" transform="skewX(-18)"/></g>'
+    ascii_file = ROOT / "data" / "portrait_ascii.json"
+    ascii_lines = json.loads(ascii_file.read_text(encoding="utf-8")) if ascii_file.exists() else []
+
+    ascii_svg = ""
+    for i, line in enumerate(ascii_lines):
+        y_pos = 43.2 + i * 8.33
+        delay = 0.25 + i * (1.96 - 0.25) / max(1, len(ascii_lines) - 1)
+        esc_line = html.escape(line)
+        ascii_svg += (
+            f'<text class="f" style="animation-delay:{delay:.3f}s;animation-duration:.35s" '
+            f'xml:space="preserve" x="20" y="{y_pos:.1f}" fill="{INK}" font-size="7.2" '
+            f'textLength="800" lengthAdjust="spacing">{esc_line}</text>'
+        )
+
+    defs = f"""
+    <defs>
+      <linearGradient id="shine" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="600" y2="0">
+        <stop offset="0" stop-color="{INK}"/><stop offset=".42" stop-color="{INK}"/>
+        <stop offset=".5" stop-color="{BLUE}"/><stop offset=".58" stop-color="{INK}"/>
+        <stop offset="1" stop-color="{INK}"/>
+        <animateTransform attributeName="gradientTransform" type="translate" values="-600 0;600 0;600 0"
+          keyTimes="0;.45;1" dur="7s" begin="1.6s" repeatCount="indefinite"/>
+      </linearGradient>
+    </defs>
+    """
+
+    body = f"""
+    {defs}
+    <g class="f" style="animation-delay:0.00s">
+      <rect class="live" x="48" y="49" width="8" height="8" rx="2" fill="{BLUE}"/>
+      <text x="66" y="57" font-family="'Sans', ui-monospace, monospace" font-size="12" letter-spacing="1" fill="#6E6E73">FULL STACK, MOBILE &amp; AI / ML ENGINEER</text>
+    </g>
+    <text class="r" style="animation-delay:0.15s" x="44" y="180" font-family="'Serif', Georgia, serif" font-size="112" letter-spacing="-2.5" fill="{INK}">Uday</text>
+    <text class="r" style="animation-delay:0.30s" x="44" y="278" font-family="'Serif', Georgia, serif" font-style="italic" font-size="112" letter-spacing="-2.5" fill="url(#shine)">Sai Setti</text>
+    <g class="r" style="animation-delay:0.55s">
+      <text x="48" y="328" font-family="'Sans', system-ui, sans-serif" font-size="17" fill="#3A3A3C">I build web &amp; mobile apps, explore applied AI,</text>
+      <text x="48" y="354" font-family="'Sans', system-ui, sans-serif" font-size="17" fill="#3A3A3C">and engineer intelligent full-stack systems.</text>
+    </g>
+    <g class="f" style="animation-delay:0.80s">
+      <text x="48" y="392" font-family="'Sans', ui-monospace, monospace" font-size="13" fill="{INK}">github.com/udaysai12</text>
+      <text class="nu" x="202" y="392" font-family="'Sans', ui-monospace, monospace" font-size="13" fill="{BLUE}">&#8599;</text>
+    </g>
+    <g transform="translate(520 46) scale(0.41) translate(-20 -37)" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+      {ascii_svg}
+    </g>
+    """
+    return (
+        f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 420" width="880" height="420">'
+        f"<style>{CSS}</style>"
+        f'<rect x="1" y="1" width="878" height="418" rx="14" fill="{PAPER}" stroke="{LINE}" stroke-width="2"/>'
+        f"{body}</svg>"
     )
-    b += f'<circle class="pulse c" cx="54" cy="186" r="5" fill="{BLUE}"/>'
-    b += t(70, 192, ROLE, 18, INK, delay=0.7)
-    b += t(48, 222, TAGLINE, 16, MUTED, delay=0.9)
-    return svg(900, 250, b)
 
 # ---------- blue contribution graph ----------
 def graph():

@@ -9,13 +9,20 @@ text{font-family:'Sans',-apple-system,'Segoe UI',system-ui,sans-serif}
 .swing{animation:swing .9s cubic-bezier(.2,.9,.3,1.2) both}
 .pulse{animation:pulse 1.8s ease-in-out infinite}
 .nudge{animation:nudge 1.6s ease-in-out infinite}
+.nudgeup{transform-box:fill-box;animation:nudgeup 1.8s ease-in-out infinite}
 .shine{animation:shine 4s ease-in-out infinite}
+.r{opacity:0;animation:rise .8s cubic-bezier(.2,.7,.2,1) both;transform-box:fill-box}
+.f{opacity:0;animation:fade .9s ease-out both}
+.live{animation:pulse 1.6s ease-in-out infinite}
+.nu{transform-box:fill-box;animation:nudgeup 1.8s ease-in-out infinite}
 @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@keyframes fade{from{opacity:0}to{opacity:1}}
 @keyframes pop{from{opacity:0;transform:scale(.2)}to{opacity:1;transform:scale(1)}}
 @keyframes grow{from{transform:scaleY(0)}to{transform:scaleY(1)}}
 @keyframes swing{0%{opacity:0;transform:translateY(46px) rotate(-5deg)}70%{opacity:1;transform:translateY(-4px) rotate(.8deg)}100%{opacity:1;transform:none}}
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(1.5)}}
 @keyframes nudge{0%,100%{transform:translateX(0)}50%{transform:translateX(5px)}}
+@keyframes nudgeup{0%,100%{transform:none}50%{transform:translate(3px,-3px)}}
 @keyframes shine{0%,60%{transform:translateX(-120%)}100%{transform:translateX(260%)}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important}}
 </style><rect x="1" y="1" width="898" height="142" rx="16" fill="#F6F1E7" stroke="#DDD5C4" stroke-width="2"/><circle class="pulse c" cx="42" cy="40" r="5" fill="#10B981"/><text x="58" y="44" font-size="12" fill="#10B981" font-weight="700" text-anchor="start" class="rise" style="animation-delay:0.1s">LATEST COMMIT &amp; RECENT ACTIVITY</text><text x="862" y="44" font-size="13" fill="#8A8274" font-weight="400" text-anchor="end" class="rise" style="animation-delay:0.2s">Branch: main · Recently updated</text><text x="42" y="88" font-size="34" fill="#16130F" font-weight="400" text-anchor="start" class="rise serif" style="animation-delay:0.3s">PCDrop</text><text class="nudge" x="862" y="88" font-size="24" fill="#16130F" text-anchor="end">→</text><text x="42" y="118" font-size="15" fill="#8A8274" font-weight="400" text-anchor="start" class="rise" style="animation-delay:0.5s">feat: chunked multi-threaded file transfer over local Wi-Fi</text></svg>
