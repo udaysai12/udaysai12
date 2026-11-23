@@ -372,7 +372,7 @@ def skills_card():
         d = 0.4 + idx * 0.1
         b += f'<rect class="pop c" x="{bx}" y="{by}" width="406" height="116" rx="12" fill="#EFE8DA" stroke="#DDD5C4" stroke-width="1" style="animation-delay:{d:.2f}s"/>'
         b += f'<circle cx="{bx + 18}" cy="{by + 24}" r="4" fill="{color}"/>'
-        b += f'<text x="{bx + 28}" y="{by + 28}" font-size="11" font-weight="700" fill="{color}">{title}</text>'
+        b += f'<text x="{bx + 28}" y="{by + 28}" font-size="11" font-weight="700" fill="{color}">{esc(title)}</text>'
 
         curr_x = bx + 16
         for icon_key, label in rows[0]:
