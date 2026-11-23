@@ -128,6 +128,13 @@ def streaks(ds):
 cur_streak, best_streak = streaks(days)
 active = sum(1 for d in days if d["count"] > 0)
 busiest = max(days, key=lambda d: d["count"])
+public_repos = data.get("public_repos", 30)
+
+TILES = [  # file, label, big number, caption, description, bg, text colour
+    ("build", "REPOSITORIES", str(public_repos), "public repositories", "Web, mobile, AI & systems", "#2F5BFF", "#FFFFFF"),
+    ("ship", "CONTRIBUTIONS", f"{total:,}", "yearly contributions", "Code pushes, PRs & reviews", "#E5484D", "#FFFFFF"),
+    ("lead", "ACTIVE DAYS", str(active), "days coded in 2026", f"Peak: {busiest['count']} in a day · Streak: {best_streak}d", "#F5B700", "#16130F"),
+]
 
 # ---------- hero ----------
 def hero():
@@ -248,9 +255,11 @@ def months():
 def tile(i, spec):
     _, label, num, cap, desc, bg, fg = spec
     d = 3.2 + i * 0.25
-    b = t(28, 46, label, 15, fg, delay=d, weight=700)
+    num_str = str(num)
+    fsize = 68 if len(num_str) > 4 else 88
+    b = t(28, 46, label, 14, fg, delay=d, weight=700)
     b += f'<text class="nudge" x="372" y="46" font-size="22" fill="{fg}" text-anchor="end">→</text>'
-    b += t(28, 140, num, 92, fg, "serif", d + 0.2)
+    b += t(28, 138, num_str, fsize, fg, "serif", d + 0.2)
     b += t(28, 172, cap, 18, fg, delay=d + 0.3, weight=600)
     b += t(28, 202, desc, 14, fg, delay=d + 0.4)
     inner = (
